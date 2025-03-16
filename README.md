@@ -74,7 +74,7 @@ aws cognito-idp admin-set-user-password \
   --profile <aws-profile-name> --region <aws-region>
 ```
 
-Authenticate the user using Cognito and note down the value of `IdToken`:
+Authenticate the user using Cognito and note down the value of `IdToken`, replace the value `cognito_user_pool_client_id` from the Terraform output:
 
 ```
 aws cognito-idp initiate-auth \
@@ -98,7 +98,7 @@ ID_TOKEN=$(echo $AUTH_RESPONSE | jq -r '.AuthenticationResult.IdToken')
 
 ## Creating the VPC using the API
 
-Execute the following command to create a VPC using the new API and store its information in DynamoDB:
+Execute the following command to create a VPC using the new API and store its information in DynamoDB, replace the value `api_invoke_url` from the Terraform output:
 
 ```
 curl -X POST <api_invoke_url>/vpc \
@@ -110,7 +110,7 @@ curl -X POST <api_invoke_url>/vpc \
          }'
 ```
 
-Execute the following command to fetch information about the VPC API from DynamoDB:
+Execute the following command to fetch information about the VPC API from DynamoDB, replace the value `api_invoke_url` from the Terraform output:
 
 ```
 curl -H "Authorization: Bearer $ID_TOKEN" <api_invoke_url>/vpc/<vpc_id>
