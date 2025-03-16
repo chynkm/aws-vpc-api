@@ -115,3 +115,13 @@ Execute the following command to fetch information about the VPC API from Dynamo
 ```
 curl -H "Authorization: Bearer $ID_TOKEN" <api_invoke_url>/vpc/<vpc_id>
 ```
+
+## Deleting the resources
+
+Execute the following command and enter `yes` when prompted to delete all the infrastructure created by this repository:
+
+```
+terraform destroy
+```
+
+Please be aware that the VPC resources created using the API will need to be manually deleted.
