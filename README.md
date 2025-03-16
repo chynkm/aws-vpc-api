@@ -66,7 +66,7 @@ The last command will output necessary values that will be required for the next
 
 ## Cognito authentication
 
-Create a new user in Cognito using the following commands, replace the value `cognito_user_pool_id` from the Terraform output:
+Create a new user in Cognito using the following commands, replace the value `cognito_user_pool_id` from the Terraform output. Please also replace the values for `aws-profile-name` and `aws-region`:
 
 ```
 aws cognito-idp admin-create-user \
@@ -147,13 +147,13 @@ Please be aware that the VPC resources created using the API will need to be man
 
 This repository is a work in progress. Below are potential improvements and areas for enhancement:
 
-- State Management: Implement S3 + DynamoDB backend for Terraform to manage infrastructure state efficiently.
+- State management: Implement S3 + DynamoDB backend for Terraform to manage infrastructure state efficiently.
 - Logging & Monitoring: Enhance logging to improve observability and debugging capabilities.
-- Configuration Flexibility: Replace hardcoded values with configurable variables for better maintainability.
-- Rate Limiting & Throttling: Introduce rate limiting and API Gateway throttling to protect against excessive requests. Evaluate whether to split API Gateway into separate endpoints for VPC creation, retrieval and different rate limits for the two endpoints(to follow [SRP](https://en.wikipedia.org/wiki/Single-responsibility_principle)).
-- IAM Access Control: Implement fine-grained IAM roles instead of full-access permissions for better security.
+- Configuration flexibility: Replace hardcoded values with configurable variables for better maintainability.
+- Rate limiting & throttling: Introduce rate limiting and API Gateway throttling to protect against excessive requests. Evaluate whether to split API Gateway into separate endpoints for VPC creation, retrieval and different rate limits for the two endpoints(and also to follow [SRP](https://en.wikipedia.org/wiki/Single-responsibility_principle)).
+- IAM access control: Implement fine-grained IAM roles instead of full-access permissions for better security.
 - Modularization: Refactor Terraform configurations and Lambda functions into reusable modules.
-- Security Enhancements: Integrate AWS WAF and AWS Shield to protect against attacks.
-- Optimize background processing for subnet creation by leveraging message queues (e.g., Amazon SQS, RabbitMQ, or Redis) to handle subnet provisioning asynchronously when the number of subnets exceeds API Gateway's execution limits.
-- CI/CD Integration: Set up CI/CD pipelines to automate testing and deployment.
-- Architecture Documentation: Provide a simple architecture diagram and documentation for better understanding.
+- Security enhancements: Integrate AWS WAF and AWS Shield to protect against attacks.
+- Performance optimization: Optimize background processing for subnet creation by leveraging message queues (e.g., Amazon SQS, RabbitMQ, or Redis) to handle subnet provisioning asynchronously when the number of subnets exceeds API Gateway's execution limits.
+- CI/CD integration: Set up CI/CD pipelines to automate testing and deployment of this repository.
+- Architecture documentation: Provide a simple architecture diagram and documentation for better understanding.
