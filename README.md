@@ -141,3 +141,19 @@ terraform destroy
 ```
 
 Please be aware that the VPC resources created using the API will need to be manually deleted.
+
+
+### Improvements & future enhancements
+
+This repository is a work in progress. Below are potential improvements and areas for enhancement:
+
+- State Management: Implement S3 + DynamoDB backend for Terraform to manage infrastructure state efficiently.
+- Logging & Monitoring: Enhance logging to improve observability and debugging capabilities.
+- Configuration Flexibility: Replace hardcoded values with configurable variables for better maintainability.
+- Rate Limiting & Throttling: Introduce rate limiting and API Gateway throttling to protect against excessive requests. Evaluate whether to split API Gateway into separate endpoints for VPC creation, retrieval and different rate limits for the two endpoints(to follow [SRP](https://en.wikipedia.org/wiki/Single-responsibility_principle)).
+- IAM Access Control: Implement fine-grained IAM roles instead of full-access permissions for better security.
+- Modularization: Refactor Terraform configurations and Lambda functions into reusable modules.
+- Security Enhancements: Integrate AWS WAF and AWS Shield to protect against attacks.
+- Optimize background processing for subnet creation by leveraging message queues (e.g., Amazon SQS, RabbitMQ, or Redis) to handle subnet provisioning asynchronously when the number of subnets exceeds API Gateway's execution limits.
+- CI/CD Integration: Set up CI/CD pipelines to automate testing and deployment.
+- Architecture Documentation: Provide a simple architecture diagram and documentation for better understanding.
