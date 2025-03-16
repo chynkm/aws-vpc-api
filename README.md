@@ -29,6 +29,13 @@ Please refer this [link](https://pre-commit.com/) for a detailed introduction.
 - [jq](https://jqlang.org/)
 
 
+## Assumptions and other informations
+
+- This code is designed to support IPv4 subnets only.
+- An AWS account supports a maximum limit of 5 VPCs by default.
+- AWS allows VPCs with [CIDR blocks](https://docs.aws.amazon.com/vpc/latest/userguide/subnet-sizing.html#subnet-sizing-ipv4) in the range of `/16` to `/28`.
+
+
 ## Terraform setup
 
 The repo can be deployed using Terraform.
