@@ -21,10 +21,17 @@ This will enable the pre-commit to run automatically on git commit!
 Please refer this [link](https://pre-commit.com/) for a detailed introduction.
 
 
+## Prerequisites
+
+- An AWS account with necessary permissions.
+- AWS CLI installed and configured with appropriate credentials.
+- Terraform preferably configured using [tfenv](https://github.com/tfutils/tfenv).
+- [jq](https://jqlang.org/)
+
+
 ## Terraform setup
 
 The repo can be deployed using Terraform.
-Install terraform on your local machine using [tfenv](https://github.com/tfutils/tfenv).
 
 
 Create the plans directory
@@ -96,6 +103,7 @@ AUTH_RESPONSE=$(aws cognito-idp initiate-auth \
 ID_TOKEN=$(echo $AUTH_RESPONSE | jq -r '.AuthenticationResult.IdToken')
 ```
 
+
 ## Creating the VPC using the API
 
 Execute the following command to create a VPC using the new API and store its information in DynamoDB, replace the value `api_invoke_url` from the Terraform output:
@@ -115,6 +123,7 @@ Execute the following command to fetch information about the VPC API from Dynamo
 ```
 curl -H "Authorization: Bearer $ID_TOKEN" <api_invoke_url>/vpc/<vpc_id>
 ```
+
 
 ## Deleting the resources
 
