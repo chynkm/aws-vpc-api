@@ -16,3 +16,6 @@ Initialize pre-commit inside the repo by executing the following command:
 ```
 pre-commit install
 ```
+
+This will enable the pre-commit to run automatically on git commit!
+Please refer this [link](https://pre-commit.com/) for a detailed introduction.
