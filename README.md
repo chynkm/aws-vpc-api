@@ -95,3 +95,23 @@ AUTH_RESPONSE=$(aws cognito-idp initiate-auth \
 
 ID_TOKEN=$(echo $AUTH_RESPONSE | jq -r '.AuthenticationResult.IdToken')
 ```
+
+### Creating the VPC using the API
+
+Execute the following command to create a VPC using the new API and store its information in DynamoDB:
+
+```
+curl -X POST <api_invoke_url>/vpc \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer $ID_TOKEN" \
+     -d '{
+           "cidr_block": "10.0.0.0/16",
+           "subnet_count": 50
+         }'
+```
+
+Execute the following command to fetch information about the VPC API from DynamoDB:
+
+```
+curl -H "Authorization: Bearer $ID_TOKEN" <api_invoke_url>/vpc/<vpc_id>
+```
