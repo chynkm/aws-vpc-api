@@ -84,7 +84,7 @@ aws cognito-idp initiate-auth \
   --profile <aws-profile-name> --region <aws-region>
 ```
 
-The easier way to complete the above step would be following commands. This will store the `IdToken` value to the variable `ID_TOKEN`:
+The easier way to complete the above step is by using the following commands. This will store the `IdToken` value to the variable `ID_TOKEN`:
 
 ```
 AUTH_RESPONSE=$(aws cognito-idp initiate-auth \
