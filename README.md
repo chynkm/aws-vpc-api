@@ -125,7 +125,7 @@ curl -X POST <api_invoke_url>/vpc \
          }'
 ```
 
-Execute the following command to fetch information about the VPC API from DynamoDB, replace the value `api_invoke_url` from the Terraform output:
+Execute the following command to fetch information about the VPC API from DynamoDB, replace the value `api_invoke_url` from the Terraform output and provide a value for `vpc_id`:
 
 ```
 curl -H "Authorization: Bearer $ID_TOKEN" <api_invoke_url>/vpc/<vpc_id>
