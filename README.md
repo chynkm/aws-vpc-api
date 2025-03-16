@@ -3,7 +3,7 @@
 Creating an AWS VPC using serverless tools.
 
 
-### Install Git Pre-commit hooks
+## Install Git Pre-commit hooks
 
 Install pre-commit by executing the following command in Linux and Mac:
 
@@ -21,7 +21,7 @@ This will enable the pre-commit to run automatically on git commit!
 Please refer this [link](https://pre-commit.com/) for a detailed introduction.
 
 
-### Terraform setup
+## Terraform setup
 
 The repo can be deployed using Terraform.
 Install terraform on your local machine using [tfenv](https://github.com/tfutils/tfenv).
@@ -50,7 +50,7 @@ terraform apply plans/aws-api
 The last command will output necessary values that will be required for the next step.
 
 
-### Cognito authentication
+## Cognito authentication
 
 Create a new user in Cognito using the following commands, replace the value `cognito_user_pool_id` from the Terraform output:
 
@@ -96,7 +96,7 @@ AUTH_RESPONSE=$(aws cognito-idp initiate-auth \
 ID_TOKEN=$(echo $AUTH_RESPONSE | jq -r '.AuthenticationResult.IdToken')
 ```
 
-### Creating the VPC using the API
+## Creating the VPC using the API
 
 Execute the following command to create a VPC using the new API and store its information in DynamoDB:
 
