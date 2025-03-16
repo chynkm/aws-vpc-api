@@ -27,3 +27,15 @@ variable "lambda_authorizer_timeout" {
   description = "The API Gateway authorizer timeout"
   default     = 10
 }
+
+variable "stage_name" {
+  type        = string
+  description = "The API Gateway stage value"
+  default     = "prod"
+}
+
+variable "api_gateway_timeout" {
+  type        = string
+  description = "The API Gateway maximum timeout"
+  default     = 29000
+}
