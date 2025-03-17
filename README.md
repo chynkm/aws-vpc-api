@@ -157,3 +157,4 @@ This repository is a work in progress. Below are potential improvements and area
 - Performance optimization: Optimize background processing for subnet creation by leveraging message queues (e.g., Amazon SQS, RabbitMQ, or Redis) to handle subnet provisioning asynchronously when the number of subnets exceeds API Gateway's execution limits.
 - CI/CD integration: Set up CI/CD pipelines to automate testing and deployment of this repository.
 - Architecture documentation: Provide a simple architecture diagram for better understanding.
+- DNS name: Assign easy to remember domain name using Route53.
